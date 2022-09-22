@@ -1,38 +1,112 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    background-color: #282c34;
+    min-height: 100vh;
+    color: wheat;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .nav{
+    width: 100% !important;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .nav button{
+    background-color: rgba(100, 100, 255, 0) !important;
+    border: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
   }
-}
+  
+  .nav button:hover{
+    color: rgba(140, 255, 65, 1)
+  }
+  
+  .nav .gen-nav{
+    display: flex;
+    position: relative;
+    left: 20px;
+    gap: 5%;
+  }
+  
+  .nav h4{
+    font-size: 20px;
+    align-self: end;
+    color: rgba(140, 255, 65, 1);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  .loggedinnav{
+    animation: move 0.5s 1 linear ease-in-out
+  }
+  
+  .all button{
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: rgba(200, 255, 200, 1);
+    border: none;
+    font-family:sans-serif
+  }
+  
+  
+  .signin{
+    font-size: 18px;
+  }
+  
+  .signin{
+    height: 90vh !important;
+  }
+  
+  .signform{
+    width: 100% !important;
+    display: grid;
+    position: relative;
+    top: 100px;
+  }
+  
+  .signname{
+    width: 50%;
+    justify-self: center;
+    font-size: 16px;
+  }
+  
+  .signpass{
+    width: 50%;
+    justify-self: center;
+    font-size: 16px;
+  }
+  
+  .signemail{
+    width: 50%;
+    justify-self: center;
+    font-size: 16px;
+  }
+  
+  .logform{
+    width: 100% !important;
+    display: grid;
+    position: relative;
+    top: 100px;
+  }
+  
+  .logname{
+    width: 50%;
+    justify-self: center;
+    font-size: 16px;
+  }
+  
+  .logpass{
+    width: 50%;
+    justify-self: center;
+    font-size: 16px;
+  }
+  
+  .enter button{
+    border: none;
+    background-color: rgba(100, 100, 255, 0.6);
+  }
+  
+  
+  @keyframes move {
+    from{
+      transform: translateY(0)
+    }
+    to {
+      transform: translateY(100%)
+    }
+  }
