@@ -37,7 +37,7 @@ function App() {
   
 
   useEffect(() => {
-    fetch("https://vasilis-blog-1991.herokuapp.com/signed")
+    fetch("https://billy-commerce.herokuapp.com/signedin")
     .then(res => res.json())
     .then(data => {
       setUsers([...data])})
@@ -156,7 +156,7 @@ function App() {
   }
 
   const handleSubmitUser = (e) => {
-      Axios.post("https://vasilis-blog-1991.herokuapp.com/signin",{
+      Axios.post("https://billy-commerce.herokuapp.com/signin",{
         username: userName,
         password: passWord,
         email: email,
