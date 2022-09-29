@@ -41,7 +41,7 @@ function App() {
   const [showDesc, setShowDesc] = useState(false)
 
   useEffect(() => {
-    fetch("https://splendid-granita-8f1e4f.netlify.app/signedin")
+    fetch("https://billy-commerce.herokuapp.com//signedin")
     .then(res => res.json())
     .then(data => {
       setUsers([...data])})
@@ -175,7 +175,7 @@ function App() {
   }
 
   const handleSubmitUser = (e) => {
-      Axios.post("https://splendid-granita-8f1e4f.netlify.app/signin",{
+      Axios.post("https://billy-commerce.herokuapp.com//signin",{
         username: userName,
         password: passWord,
         email: email,
