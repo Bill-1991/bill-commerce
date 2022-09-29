@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row } from "react-bootstrap";
-//import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 //import cart from "../cart.webp"
 import allChars from "../allchars.jpg"
 
@@ -18,13 +18,13 @@ const Home = ({ topAnime, handleAddToCartTop, loggedIn, loggedInUser }) => {
   }, 3000)
 
   return (
-    <Row className="home" style={{position: "fixed", top: "0", backgroundImage: `url(${allChars})`, backgroundSize: "cover", height: "100vh", width: "100%"}} id="/">
+    <Row className="home" style={{position: "fixed", top: "0", backgroundImage: `url(${allChars})`, backgroundSize: "cover", height: "100%", width: "100%"}} id="/">
           <div className="slider" >
           <h4 className="slide" style={{display: count >= 0 && count < 1 ? "block" : "none", color: "rgba(0, 0, 0, 1)"}}>
-              Everything a hardcore fan should have in his collection is here!!!
+              Welcome to Anime Quality!! The all in one place anime titles's place with a wide variety of anime episodes and anime souvenirs! Search around!
             </h4>
             <h4 className="slide" style={{display: count >= 1 && count < 2 ? "block" : "none",color: "rgba(0, 0, 0, 1)"}}>
-              Everything a hardcore!!!
+              <Link to="/anime">Animelist</Link>
             </h4>
             <h4 className="slide" style={{display: count >= 2 && count < 3 ? "block" : "none", color: "rgba(0, 0, 0, 1)"}}>
               Everything!!!

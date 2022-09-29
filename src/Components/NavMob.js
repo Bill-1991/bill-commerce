@@ -6,7 +6,7 @@ import audio from "../audio.mp3"
 
 const NavMob = (props) => {
   return (
-    <Navbar sticky="top" className="navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.5)" : "rgba(100, 100, 255, 0.8)", gridTemplateColumns: "70% 30%", height: "fit-content", width: "100%"}} expand="lg">
+    <Navbar sticky="top" className="navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "70% 30%", height: "fit-content", width: "100%"}} expand="lg">
       <div className='d-flex gen-nav-mob' style={{alignSelf: "start"}}>
           <p className='LOGO' style={{alignSelf: "start", fontSize: "18px"}}>{"Anim ( E ) - Quality"}</p>
          <div className='d-flex' style={{gap: "5px", alignSelf: "start"}}>

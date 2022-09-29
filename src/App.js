@@ -47,8 +47,6 @@ function App() {
       setUsers([...data])})
   },[])
 
-  console.log(animeList)
-
   /* useEffect(() => {
     const loggedInPerson = JSON.parse(window.localStorage.getItem("loggedInUser"))
     if (loggedInPerson.loggedIn === true){

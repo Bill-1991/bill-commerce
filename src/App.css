@@ -30,6 +30,11 @@
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
   }
 
+  .navmob p{
+    position: relative;
+    top: 5px;
+  }
+
   .nav button:hover{
     color: rgba(140, 255, 65, 1) !important;
   }
@@ -118,14 +123,16 @@
   }
 
   .home .slider{
-    height: 40vh !important;
-    position: relative !important;
+    position: absolute !important;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 1 !important;
     text-align: center;
   }
 
   .home .slider .slide{
-    height: 100% !important;
     font-size: 35px;
     animation: slide 4s infinite ease-in-out;
   }
@@ -153,16 +160,15 @@
 
     .navmob p{
       font-size: 20px;
-      align-self: end;
       color: rgba(140, 255, 65, 1);
-      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-family:monospace !important;
     }
 
     .navmob button{
         background-color: rgba(0, 0, 0, 0) !important;
         color: rgba(200, 255, 200, 1);
         border: none;
-        font-family:sans-serif;
+        font-family:monospace !important;
     }
   }
   
@@ -184,7 +190,7 @@
       font-size: 14px !important;
       align-self: end;
       color: rgba(140, 255, 65, 1);
-      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-family:monospace !important;
     }
 
     .navmob button{
@@ -192,22 +198,38 @@
         background-color: rgba(0, 0, 0, 0) !important;
         color: rgba(200, 255, 200, 1);
         border: none;
-        font-family:sans-serif;
+        font-family:monospace !important;
+    }
+  }
+
+  @media only screen and (max-width: 400px){
+    .navmob button{
+       font-size: 12px !important;
+       font-family:monospace !important;
+    }
+
+    .navmob p{
+      font-size: 12px !important;
+      font-family: monospace !important;
     }
   }
 
   @keyframes slide {
     0%{
-      transform: translateY(100%);
+      background-color: rgba(255, 255, 255, 0);
+      transform: translateX(-100%);
     }
     10%{
-      transform: translateY(50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      transform: translateX(0%);
+    }
+    80%{
+      background-color: rgba(255, 255, 255, 0.8);
+      transform: translateX(0%)
     }
     90%{
-      transform: translateY(50%)
-    }
-    100%{
-      transform: translateY(0)
+      background-color: rgba(255, 255, 255, 0);
+      transform: translateY(500px)
     }
   }
 
