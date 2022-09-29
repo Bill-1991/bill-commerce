@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Navbar, Nav, Button } from "react-bootstrap"
+import {Navbar, Nav, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import navCart from "../navCart.png"
 import audio from "../audio.mp3"

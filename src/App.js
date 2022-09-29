@@ -8,8 +8,8 @@ import NavMob from "./Components/NavMob";
 import Cart from "./Components/Cart";
 import SignIn from "./Components/SignIn"
 import LogIn from "./Components/LogIn"
-import cart from "./cart.webp"
-import { Container, Row, Col } from "react-bootstrap";
+//import cart from "./cart.webp"
+import { Container} from "react-bootstrap";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Axios from "axios";
 import EachAnime from "./Components/EachAnime";
@@ -19,8 +19,8 @@ function App() {
   
   const [animeList, setAnimeList] = useState([])
   const [price, setPrice] = useState(0)
-  const [order, setOrder] = useState(false)
-  const [name, setName] = useState("")
+  //const [order, setOrder] = useState(false)
+  //const [name, setName] = useState("")
   const [topAnime, setTopAnime] = useState([])
   const [sound, setSound] = useState(false)
   const [basketItems, setBasketItems] = useState([]) 
@@ -35,8 +35,8 @@ function App() {
   const [image, setImage] = useState(null)
   const [collapse, setCollapse] = useState(false)
   const [navCollapse, setNavCollapse] = useState(false)
-  const [commentsRoom, setCommentsRoom] = useState([])
-  const [message, setMessage] = useState("")
+  //const [commentsRoom, setCommentsRoom] = useState([])
+  //const [message, setMessage] = useState("")
   const [loggedIn, setLoggedIn] = useState(false)
   const [showDesc, setShowDesc] = useState(false)
 
@@ -83,13 +83,13 @@ function App() {
   })
   },[])
 
-  const chatUser = {id: undefined, image: image, message: message}
+  //const chatUser = {id: undefined, image: image, message: message}
   
  
-  const handleMessage = (e) => {
+  /*const handleMessage = (e) => {
     e.preventDefault()
     setMessage(e.target.value)
-  }
+  }*/
 
   const handleShowDesc = () => {
     if (showDesc === false){
@@ -108,7 +108,7 @@ function App() {
   }
 
   const handleNavCollapse = () => {
-    if (collapse === false) {
+    if (navCollapse === false) {
       setNavCollapse(true)
     } else {
       setNavCollapse(false)
@@ -199,7 +199,7 @@ function App() {
   }
   
   const handleAddToCartTop = (id) => {
-    let newItems = [...basketItems]
+    //let newItems = [...basketItems]
     let newItem = topAnime.filter(anime => anime === id)
     if(basketItems.indexOf(id) === -1){
       setBasketItems(basketItems.concat(newItem))
@@ -213,7 +213,6 @@ function App() {
   
   const handleAddToCartAnime = (id) => {
     let price1 = 0
-    let newItems = [...basketItems]
     let newItem = animeList.filter(anime => anime === id)
     if(basketItems.indexOf(id) === -1){
       setBasketItems(basketItems.concat(newItem))
@@ -269,7 +268,7 @@ function App() {
     }
   }
   
-  const handleReset = (id) => {
+  /*const handleReset = (id) => {
     let price1 = 0
     for (let i = 0; i < basketItems.length; i++) {
       if (basketItems[i] === id) {
@@ -280,25 +279,25 @@ function App() {
     price1 += (basketItems[i].count + 1) * basketItems[i].price
       setPrice(price1)
     }
-  }
+  }*/
 
 
   const handleSubmit = () => {
-    setOrder(true)
+    //setOrder(true)
     setPrice(0)
     setBasketItems([])
-    setTimeout(() => setOrder(false), 2000)
+    //setTimeout(() => setOrder(false), 2000)
   }
 
-  const handleChange = (e) => {
+  /*const handleChange = (e) => {
     setName(e.target.value)
-  }
+  }*/
   
   return (
     <Container fluid className="App">
       <HashRouter>
        <NavBar collapse={collapse} loggedIn={loggedIn} handleCollapse={handleCollapse} image={image} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} /> 
-       <NavMob navCollapse={collapse} loggedIn={loggedIn} handleNavCollapse={handleCollapse} image={image} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} />
+       <NavMob navCollapse={navCollapse} loggedIn={loggedIn} handleNavCollapse={handleNavCollapse} image={image} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} />
        <Routes>
         <Route exact path="/" element={<Home loggedIn={loggedIn} loggedInUser={loggedInUser} topAnime={topAnime} handleAddToCartTop={handleAddToCartTop} />} />
         <Route exact path="/anime" element={<AnimeList animeList={animeList} handleAddToCartAnime={handleAddToCartAnime} />} />
