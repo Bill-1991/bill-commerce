@@ -1,7 +1,7 @@
 import React from 'react'
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Row, Button, Navbar, Nav, Container } from "react-bootstrap";
+import {Button, Navbar} from "react-bootstrap";
 import { Link } from "react-router-dom"
 import audio from "../audio.mp3"
 import navCart from "../navCart.png"

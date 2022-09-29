@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Col, Row, Container } from "react-bootstrap";
-import { Link } from "react-router-dom"
-import cart from "../cart.webp"
+import { Row } from "react-bootstrap";
+//import { Link } from "react-router-dom"
+//import cart from "../cart.webp"
 import allChars from "../allchars.jpg"
 
 const Home = ({ topAnime, handleAddToCartTop, loggedIn, loggedInUser }) => {

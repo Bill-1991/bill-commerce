@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import cart from "../cart.webp";
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const AnimeList = ({ animeList, handleAddToCartAnime, setAnimeList }) => {
+const AnimeList = ({ animeList, handleAddToCartAnime }) => {
 
   return (
    <Container fluid id="anime">
