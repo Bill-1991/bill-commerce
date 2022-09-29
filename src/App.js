@@ -1,15 +1,18 @@
-import {React, useState, useEffect, startTransition} from "react";
+import {React, useState, useEffect} from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Components/Home"
 import AnimeList from "./Components/AnimeList"
 import NavBar from "./Components/NavBar";
+import NavMob from "./Components/NavMob";
 import Cart from "./Components/Cart";
 import SignIn from "./Components/SignIn"
 import LogIn from "./Components/LogIn"
-import { Container } from "react-bootstrap";
+import cart from "./cart.webp"
+import { Container, Row, Col } from "react-bootstrap";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Axios from "axios";
+import EachAnime from "./Components/EachAnime";
 
 
 function App() {
@@ -31,25 +34,28 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
   const [image, setImage] = useState(null)
   const [collapse, setCollapse] = useState(false)
+  const [navCollapse, setNavCollapse] = useState(false)
   const [commentsRoom, setCommentsRoom] = useState([])
   const [message, setMessage] = useState("")
   const [loggedIn, setLoggedIn] = useState(false)
-  
+  const [showDesc, setShowDesc] = useState(false)
 
   useEffect(() => {
-    fetch("https://billy-commerce.herokuapp.com/signedin")
+    fetch("http://localhost:3001/signedin")
     .then(res => res.json())
     .then(data => {
       setUsers([...data])})
   },[])
 
-  useEffect(() => {
+  console.log(animeList)
+
+  /* useEffect(() => {
     const loggedInPerson = JSON.parse(window.localStorage.getItem("loggedInUser"))
     if (loggedInPerson.loggedIn === true){
       setLoggedInUser({...loggedInPerson})
       console.log(loggedInPerson)
   }
-  }, [])
+  }, []) */
 
   useEffect(() => {
     fetch("https://api.jikan.moe/v4/anime")  
@@ -85,6 +91,13 @@ function App() {
     setMessage(e.target.value)
   }
 
+  const handleShowDesc = () => {
+    if (showDesc === false){
+      setShowDesc(true)
+    }else{
+      setShowDesc(false)
+    }
+  }
 
   const handleCollapse = () => {
     if (collapse === false) {
@@ -94,7 +107,16 @@ function App() {
     }
   }
 
+  const handleNavCollapse = () => {
+    if (collapse === false) {
+      setNavCollapse(true)
+    } else {
+      setNavCollapse(false)
+    }
+  }
+
   const handleImage = (e) => {
+    e.preventDefault()
     let img = e.target.files[0]
     setImage(URL.createObjectURL(img))
   }
@@ -102,10 +124,8 @@ function App() {
 
   const handleLoggedOut = (e) => {
     e.preventDefault()
-    let loggedInPerson = {...loggedInUser, loggedIn: false}
-    setLoggedInUser(loggedInPerson)
-    console.log(loggedInPerson)
-    window.localStorage.setItem("loggedInUser", JSON.stringify(loggedInPerson))
+    setLoggedIn(false)
+   // window.localStorage.setItem("loggedInUser", JSON.stringify(loggedInPerson))
   }
 
   const handleLogInUserName = (e) => {
@@ -123,9 +143,10 @@ function App() {
     let arr = [...allUsers]
     for(let i in arr) {
       if (arr[i].password === logInPassWord && arr[i].username === logInUserName){
-        arr[i].loggedIn = true
-        window.localStorage.setItem("loggedInUser", JSON.stringify(arr[i]))
+        //window.localStorage.setItem("loggedInUser", JSON.stringify(arr[i]))
+        arr[i].image = image
         setLoggedInUser(arr[i])
+        setLoggedIn(true)
         console.log(loggedInUser)    
         setLogInPassWord("")
         setLogInUserName("")
@@ -156,7 +177,7 @@ function App() {
   }
 
   const handleSubmitUser = (e) => {
-      Axios.post("https://billy-commerce.herokuapp.com/signin",{
+      Axios.post("http://localhost:3001/signin",{
         username: userName,
         password: passWord,
         email: email,
@@ -276,13 +297,15 @@ function App() {
   return (
     <Container fluid className="App">
       <HashRouter>
-       <NavBar sticky="top" collapse={collapse} handleCollapse={handleCollapse} image={image} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} />
+       <NavBar collapse={collapse} loggedIn={loggedIn} handleCollapse={handleCollapse} image={image} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} /> 
+       <NavMob navCollapse={collapse} loggedIn={loggedIn} handleNavCollapse={handleCollapse} image={image} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} />
        <Routes>
-        <Route exact path="/" element={<Home loggedInUser={loggedInUser} topAnime={topAnime} handleAddToCartTop={handleAddToCartTop} />} />
+        <Route exact path="/" element={<Home loggedIn={loggedIn} loggedInUser={loggedInUser} topAnime={topAnime} handleAddToCartTop={handleAddToCartTop} />} />
         <Route exact path="/anime" element={<AnimeList animeList={animeList} handleAddToCartAnime={handleAddToCartAnime} />} />
         <Route exact path="/cart" element={<Cart price={price} basketItems={basketItems} handleRemoveFromCart={handleRemoveFromCart} handleInc={handleInc} handleDec={handleDec} />} />
         <Route exact path="/signin" element={<SignIn handleImage={handleImage} wrongPass={wrongPass} userName={userName} passWord={passWord} email={email} handleNameChange={handleNameChange} handlePassChange={handlePassChange} handleEmailChange={handleEmailChange} handleSubmit={handleSubmit} allUsers={allUsers} handleSubmitUser={handleSubmitUser} />} />
-        <Route exact path="/login" element={loggedInUser.loggedIn === true ? (<Navigate replace to="/" />) : (<LogIn logInUserName={logInUserName} logInPassWord={logInPassWord} loggedInUser={loggedInUser} handleLoggedInSubmit={handleLoggedInSubmit} handleLogInUserName={handleLogInUserName} handleLogInPassWord={handleLogInPassWord}  />)} />
+        <Route exact path="/login" element={loggedIn === true ? (<Navigate replace to="/" />) : (<LogIn logInUserName={logInUserName} logInPassWord={logInPassWord} loggedInUser={loggedInUser} handleLoggedInSubmit={handleLoggedInSubmit} handleLogInUserName={handleLogInUserName} handleLogInPassWord={handleLogInPassWord}  />)} />
+        {animeList.map(anime => <Route exact path={"/anime/" + anime.title} element={<EachAnime showDesc={showDesc} handleShowDesc={handleShowDesc} handleAddToCartAnime={handleAddToCartAnime} anime={anime} />} />)}
        </Routes>
      </HashRouter>
     </Container>

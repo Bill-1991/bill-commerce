@@ -1,11 +1,11 @@
 import React from 'react'
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Col, Row, Button, Container, Card, Form} from "react-bootstrap";
+import {Col, Row, Button, Container, Form} from "react-bootstrap";
 
 const Cart = ({ price, basketItems, handleInc, handleChange, handleDec, handleRemoveFromCart, handleReset, handleSubmit }) => {
   return (
-    <Container fluid id="cart">
+    <Container fluid id="cart" style={{position: "relative", top: "50px"}}>
       <Row>
         {basketItems.map(item => <Col xs={12} sm={6} md={6} lg={4} key={item.title}>
         <div className='d-grid mb-3 all' style={{backgroundColor: "white", color: "black", height: "30vh", gridTemplateColumns: "35% 65%"}}>

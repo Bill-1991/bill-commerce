@@ -8,7 +8,7 @@ const SignIn = (props) => {
   return (
     <div id="signin">
     <Container>
-      <Form className='signform'>
+      <Form onSubmit={props.handleSubmitUser} className='signform'>
         <Form.Group className="mb-3 signname">
             <Form.Label>This will be your username</Form.Label>
             <Form.Control type="name" value={props.userName} id="username" onChange={props.handleNameChange} placeholder="eg: Vasileios Goodfellow">

@@ -1,23 +1,43 @@
+* {
+  margin: 0;
+}
+
 .App {
-    background-color: #282c34;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,116,1) 35%, rgba(0,212,255,1) 100%);
     min-height: 100vh;
     color: wheat;
   }
   
   .nav{
     width: 100% !important;
+    height: fit-content !important;
+    display: grid !important;
+  }
+
+  .nav .loggedinnav{
+    animation: move 0.5s 1 ease-in-out !important
   }
   
   .nav button{
-    background-color: rgba(100, 100, 255, 0) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
     border: none;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
   }
-  
+
+  .navmob button{
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+  }
+
   .nav button:hover{
-    color: rgba(140, 255, 65, 1)
+    color: rgba(140, 255, 65, 1) !important;
   }
   
+  .navmob button:hover{
+    color: rgba(140, 255, 65, 1) !important;
+  }
+
   .nav .gen-nav{
     display: flex;
     position: relative;
@@ -25,24 +45,20 @@
     gap: 5%;
   }
   
-  .nav h4{
+  .nav p{
+    position: relative !important;
     font-size: 20px;
-    align-self: end;
     color: rgba(140, 255, 65, 1);
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
-  
-  .loggedinnav{
-    animation: move 0.5s 1 linear ease-in-out
+
+  .enter button{
+    color: white !important;
   }
-  
-  .all button{
-    background-color: rgba(0, 0, 0, 0) !important;
-    color: rgba(200, 255, 200, 1);
-    border: none;
-    font-family:sans-serif
+
+  .navmob {
+    display: none !important;
   }
-  
   
   .signin{
     font-size: 18px;
@@ -55,8 +71,10 @@
   .signform{
     width: 100% !important;
     display: grid;
-    position: relative;
-    top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .signname{
@@ -80,8 +98,10 @@
   .logform{
     width: 100% !important;
     display: grid;
-    position: relative;
-    top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .logname{
@@ -100,13 +120,106 @@
     border: none;
     background-color: rgba(100, 100, 255, 0.6);
   }
+
+  .home .slider{
+    height: 40vh !important;
+    position: relative !important;
+    opacity: 1 !important;
+    text-align: center;
+  }
+
+  .home .slider .slide{
+    height: 100% !important;
+    font-size: 35px;
+    animation: slide 4s infinite ease-in-out;
+  }
+
+  .all button{
+    border: none !important;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(200, 100, 100, 1)
+  }
   
+  @media only screen and (max-width: 800px){
+    .nav{
+      display: none !important
+    }
+
+    .navmob{
+      display: grid !important
+    }
+    .gen-nav-mob{
+      display: flex;
+      position: relative;
+      left: 20px;
+      gap: 5%;
+    }
+
+    .navmob p{
+      font-size: 20px;
+      align-self: end;
+      color: rgba(140, 255, 65, 1);
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .navmob button{
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: rgba(200, 255, 200, 1);
+        border: none;
+        font-family:sans-serif;
+    }
+  }
   
-  @keyframes move {
-    from{
+  @media only screen and (max-width: 567px){
+    .nav{
+      display: none !important
+    }
+
+    .navmob{
+      display: grid !important;
+      width: 100%
+    }
+    .gen-nav-mob{
+      display: flex;
+      position: relative;
+    }
+
+    .navmob p{
+      font-size: 14px !important;
+      align-self: end;
+      color: rgba(140, 255, 65, 1);
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .navmob button{
+        font-size: 14px !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: rgba(200, 255, 200, 1);
+        border: none;
+        font-family:sans-serif;
+    }
+  }
+
+  @keyframes slide {
+    0%{
+      transform: translateY(100%);
+    }
+    10%{
+      transform: translateY(50%);
+    }
+    90%{
+      transform: translateY(50%)
+    }
+    100%{
       transform: translateY(0)
     }
-    to {
-      transform: translateY(100%)
+  }
+
+  @keyframes move {
+    0%{
+      height: 0 !important
+    }
+    100%{
+      height: 100% !important
     }
   }

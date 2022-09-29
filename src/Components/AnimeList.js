@@ -22,7 +22,7 @@ const AnimeList = ({ animeList, handleAddToCartAnime, setAnimeList }) => {
           <Link to={"/anime/" + anime.title}><button>See more</button></Link>
           <div className='d-grid' style={{width: "100%", gridTemplateColumns: "50% 50%", alignSelf: "end"}}>
            <h4 style={{alignSelf: "end", justifySelf: "center"}}>{anime.price}€</h4>
-           <button onClick={() => handleAddToCartAnime(anime)} style={{justifySelf: "end", backgroundColor: "blue"}}><img style={{width: "40px"}} src={cart} alt="To Cart" /></button>
+           <button onClick={() => handleAddToCartAnime(anime)} style={{justifySelf: "end", backgroundColor: "rgba(0, 0, 0 , 0)"}}><img style={{width: "40px"}} src={cart} alt="To Cart" /></button>
           </div>
          </div> 
         </div>
