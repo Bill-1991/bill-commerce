@@ -12,10 +12,10 @@ const AnimeList = ({ animeList, handleAddToCartAnime }) => {
     <Row style={{position: "relative", top: "50px", height: "150px", textAlign: "center"}}>
       <h2>Welcome! Please check out our top anime on sale this week!</h2>
     </Row>
-      <Row>
+      <Row className='animelist'>
        {animeList.map(anime => <Col xs={12} sm={6} md={6} lg={4} key={anime.title}>
-        <div className='d-grid mb-3 all' style={{backgroundColor: "rgba(0, 10, 0, 0.7)", color: "white", height: "30vh", gridTemplateColumns: "35% 65%"}}>
-          <img style={{width: "100%", height: "30vh"}} src={anime.images.jpg.image_url} alt={anime.title} />
+        <div className='d-grid mb-3 all' style={{backgroundColor: "rgba(0, 10, 0, 0.7)", color: "white", height: "fit-content", gridTemplateColumns: "35% 65%"}}>
+          <img style={{width: "100%",height: "100%"}} src={anime.images.jpg.image_url} alt={anime.title} />
          <div className='d-grid' style={{ textAlign: "center"}}>
           <h6>{anime.title}</h6>
           <p>{anime.synopsis.slice(0, 60)}...</p>

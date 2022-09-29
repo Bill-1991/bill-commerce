@@ -71,7 +71,7 @@
   .signform{
     width: 100% !important;
     display: grid;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -98,7 +98,7 @@
   .logform{
     width: 100% !important;
     display: grid;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -197,6 +197,13 @@
         color: rgba(200, 255, 200, 1);
         border: none;
         font-family:sans-serif;
+    }
+  }
+
+  @media only screen and(max-height: 700px){
+    .animelist{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
