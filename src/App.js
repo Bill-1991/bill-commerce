@@ -41,7 +41,7 @@ function App() {
   const [showDesc, setShowDesc] = useState(false)
 
   useEffect(() => {
-    fetch("http://splendid-granita-8f1e4f.netlify.app/signedin")
+    fetch("https://splendid-granita-8f1e4f.netlify.app/signedin")
     .then(res => res.json())
     .then(data => {
       setUsers([...data])})
@@ -175,7 +175,7 @@ function App() {
   }
 
   const handleSubmitUser = (e) => {
-      Axios.post("http://splendid-granita-8f1e4f.netlify.app/signin",{
+      Axios.post("https://splendid-granita-8f1e4f.netlify.app/signin",{
         username: userName,
         password: passWord,
         email: email,
