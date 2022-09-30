@@ -4,7 +4,7 @@ import {Container, Row, Form, Button} from "react-bootstrap"
 
 const LogIn = (props) => {
     return (
-      <div id="login" style={{height: "90vh"}}>
+      <div id="login" style={{height: "fit-content"}}>
         <Container>
           <Row>
           <Form className='logform'>
