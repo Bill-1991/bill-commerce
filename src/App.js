@@ -44,6 +44,7 @@ function App() {
     fetch("https://billy-commerce.herokuapp.com/signedin")
     .then(res => res.json())
     .then(data => {
+      console.log(data)
       setUsers([...data])})
   },[])
 
@@ -143,15 +144,14 @@ function App() {
       if (arr[i].password === logInPassWord && arr[i].username === logInUserName){
         //window.localStorage.setItem("loggedInUser", JSON.stringify(arr[i]))
         setLoggedInUser({...arr[i]})
-        setLoggedIn(true)
-        console.log(loggedInUser)    
+        setLoggedIn(true) 
         setLogInPassWord("")
         setLogInUserName("")
       }
     }
     
   }
-
+  console.log(allUsers)
 
   const handleNameChange = (e) => {
     e.preventDefault()
