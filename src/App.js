@@ -44,7 +44,6 @@ function App() {
     fetch("https://billy-commerce.herokuapp.com/signedin")
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       setUsers([...data])})
   },[])
 
@@ -151,7 +150,7 @@ function App() {
     }
     
   }
-  console.log(allUsers)
+  console.log(loggedInUser)
 
   const handleNameChange = (e) => {
     e.preventDefault()
