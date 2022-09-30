@@ -6,10 +6,10 @@ import audio from "../audio.mp3"
 
 const NavMob = (props) => {
   return (
-    <Navbar sticky="top" className="navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "70% 30%"}} expand="lg">
-      <div className='d-flex gen-nav-mob' style={{alignSelf: "start"}}>
-          <p className='LOGO' style={{alignSelf: "start", fontSize: "18px"}}>{"Anim(E)-Quality"}</p>
-         <div className='d-flex' style={{alignSelf: "start"}}>
+    <Navbar sticky="top" className="d-grid navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "80% 20%" }} expand="lg">
+      <div className='d-flex gen-nav-mob' style={{alignSelf: "start", justifyItems: "start"}}>
+          <p className='LOGO' style={{alignSelf: "start", fontSize: "18px", position: "relative", left: "0"}}>{"Anim(E)-Quality"}</p>
+         <div className='d-flex' style={{alignSelf: "start", justifyItems: "start"}}>
           <Link to="/"><Button className="gohome">Home</Button></Link>
           <Link to="/anime"><Button>Animelist</Button></Link>
          </div>
