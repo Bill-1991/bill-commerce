@@ -1,5 +1,4 @@
 import {React, useState, useEffect} from "react";
-const btoa = require(btoa())
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Components/Home"
@@ -14,7 +13,7 @@ import { Container} from "react-bootstrap";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Axios from "axios";
 import EachAnime from "./Components/EachAnime";
-
+const btoa = require("btoa")
 
 function App() {
   
