@@ -1,4 +1,5 @@
 import {React, useState, useEffect} from "react";
+const btoa = require(btoa())
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Components/Home"
@@ -82,7 +83,7 @@ function App() {
   },[])
 
   //const chatUser = {id: undefined, image: image, message: message}
-  
+  console.log(btoa(image.data))
  
   /*const handleMessage = (e) => {
     e.preventDefault()
@@ -177,7 +178,7 @@ function App() {
         username: userName,
         password: passWord,
         email: email,
-        image: image,
+        image: btoa(image.data),
       }).then((err, res) => {
         if (err){
           console.log(err)
