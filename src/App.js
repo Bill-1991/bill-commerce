@@ -13,7 +13,6 @@ import { Container} from "react-bootstrap";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Axios from "axios";
 import EachAnime from "./Components/EachAnime";
-const btoa = require("btoa")
 
 function App() {
   
@@ -82,8 +81,6 @@ function App() {
   },[])
 
   //const chatUser = {id: undefined, image: image, message: message}
-  const converted = btoa(image.data)
-  console.log(converted)
  
   /*const handleMessage = (e) => {
     e.preventDefault()
