@@ -82,7 +82,8 @@ function App() {
   },[])
 
   //const chatUser = {id: undefined, image: image, message: message}
-  console.log(btoa(image.data))
+  const converted = btoa(image.data)
+  console.log(converted)
  
   /*const handleMessage = (e) => {
     e.preventDefault()
@@ -177,7 +178,7 @@ function App() {
         username: userName,
         password: passWord,
         email: email,
-        image: btoa(image.data),
+        image: image,
       }).then((err, res) => {
         if (err){
           console.log(err)
