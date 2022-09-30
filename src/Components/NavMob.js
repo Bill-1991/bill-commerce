@@ -25,7 +25,7 @@ const NavMob = (props) => {
           </div>
           
       : <div className='mb-3 loggedinnavmob' style={{justifySelf: "center"}}>
-        <Link style={{marginTop: "10px"}} to="/profile"><button style={{border: "none"}}><img style={{width: "52px", height: "52px", borderRadius: "100%"}} src={props.image.data} alt="me"/></button></Link>
+        <Link style={{marginTop: "10px"}} to="/profile"><button style={{border: "none"}}><img style={{width: "52px", height: "52px", borderRadius: "100%"}} src={props.image} alt="me"/></button></Link>
         <hr style={{color: "black"}}></hr>
         </div>}
             <div className='d-grid' style={{gap: "10px"}}>

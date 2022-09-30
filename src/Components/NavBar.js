@@ -32,7 +32,7 @@ const NavBar = (props) => {
       <Link to="/signin"><button>Sign up</button></Link>
       <Link to="/login"><button>Log in</button></Link></div>
       : <div className='loggedinnav' style={{display: "grid", justifySelf: "center", alignSelf: "start"}}>
-             <button onClick={props.handleCollapse} style={{border: "none", justifySelf: "center", position: "relative"}}><img style={{width: "40px", height: "40px", borderRadius: "100%"}} src={props.image.data} alt="me"/></button>
+             <button onClick={props.handleCollapse} style={{border: "none", justifySelf: "center", position: "relative"}}><img style={{width: "40px", height: "40px", borderRadius: "100%"}} src={props.image} alt="me"/></button>
              <div className="navcollapse" style={{display: props.collapse === false ? "none" : "grid"}}>
              <Link to="/"><Button style={{position: "relative", border: "none"}}><p>Profile</p></Button></Link>
              <Link to="/"><Button style={{position: "relative", border: "none"}} onClick={props.handleLoggedOut}><p>Log out</p></Button></Link> 
