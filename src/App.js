@@ -142,8 +142,7 @@ function App() {
     for(let i in arr) {
       if (arr[i].password === logInPassWord && arr[i].username === logInUserName){
         //window.localStorage.setItem("loggedInUser", JSON.stringify(arr[i]))
-        arr[i].image = image
-        setLoggedInUser(arr[i])
+        setLoggedInUser({...arr[i]})
         setLoggedIn(true)
         console.log(loggedInUser)    
         setLogInPassWord("")
@@ -179,6 +178,7 @@ function App() {
         username: userName,
         password: passWord,
         email: email,
+        image: image,
       }).then((err, res) => {
         if (err){
           console.log(err)
