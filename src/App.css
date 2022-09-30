@@ -131,8 +131,7 @@
   }
 
   .home .slider .slide{
-    font-size: 35px;
-    animation: slide 4s infinite ease-in-out;
+    animation: slide 6s infinite ease-in-out;
   }
 
   .all button{
@@ -233,7 +232,7 @@
 
   @keyframes slide {
     0%{
-      background-color: rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 0.2);
       transform: translateX(-100%);
     }
     10%{
@@ -244,8 +243,8 @@
       background-color: rgba(255, 255, 255, 0.8);
       transform: translateX(0%)
     }
-    90%{
-      background-color: rgba(255, 255, 255, 0);
+    100%{
+      background-color: rgba(255, 255, 255, 0.2);
       transform: translateY(500px)
     }
   }

@@ -15,7 +15,7 @@ const Home = ({ topAnime, handleAddToCartTop, loggedIn, loggedInUser }) => {
     }else {
       setCount(count + 1)
     }
-  }, 3000)
+  }, 6000)
 
   return (
     <Row className="home" style={{position: "fixed", top: "0", backgroundImage: `url(${allChars})`, backgroundSize: "cover", height: "100%", width: "100%"}} id="/">

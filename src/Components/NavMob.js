@@ -6,7 +6,7 @@ import audio from "../audio.mp3"
 
 const NavMob = (props) => {
   return (
-    <Navbar sticky="top" className="d-grid navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "80% 20%" }} expand="lg">
+    <Navbar sticky="top" className="navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "80% 20%" }} expand="lg">
       <div className='d-flex gen-nav-mob' style={{alignSelf: "start", justifyItems: "start"}}>
           <p className='LOGO' style={{alignSelf: "start", fontSize: "18px", position: "relative", left: "0"}}>{"Anim(E)-Quality"}</p>
          <div className='d-flex' style={{alignSelf: "start", justifyItems: "start"}}>
@@ -15,17 +15,17 @@ const NavMob = (props) => {
          </div>
         </div>
         <div className='d-grid'>
-        <Navbar.Toggle onClick={props.handleNavCollapse} aria-controls="basic-navbar-nav" style={{border: "none", justifySelf: "end"}}/>
+        <Navbar.Toggle onClick={props.handleNavCollapse} aria-controls="basic-navbar-nav" style={{border: "none", justifySelf: "center", position: "relative", left: "10px"}}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="d-grid me-auto" style={{justifyContent: "end", position: "relative"}}>
           {props.loggedIn === false ? <div style={{justifySelf: "center"}} className="d-grid mb-3 entermob">
-          <Link to="/signin"><button>Sign up</button></Link>
+          <Link className="mt-3" to="/signin"><button>Sign up</button></Link>
           <Link to="/login"><button>Log in</button></Link>
           <hr style={{color: "black"}}></hr>
           </div>
           
-      : <div className='mb-3 loggedinnavmob' style={{justifySelf: "center"}}>
-        <Link style={{marginTop: "10px"}} to="/profile"><button style={{border: "none"}}><img style={{width: "52px", height: "52px", borderRadius: "100%"}} src={props.image} alt="me"/></button></Link>
+      : <div className='mt-3 loggedinnavmob' style={{justifySelf: "center"}}>
+        <Link to="/profile"><button style={{border: "none"}}><img style={{width: "52px", height: "52px", borderRadius: "100%"}} src={props.image} alt="me"/></button></Link>
         <hr style={{color: "black"}}></hr>
         </div>}
             <div className='d-grid' style={{gap: "10px"}}>
