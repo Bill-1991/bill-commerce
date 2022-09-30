@@ -179,7 +179,11 @@ function App() {
       }).then((err, res) => {
         if (err){
           console.log(err)
-        }else console.log("inputted")
+        }else {
+          setUserName("")
+          setPassWord("")
+          setEmail("")
+        }
       })
   }
 

@@ -197,6 +197,26 @@
         border: none;
         font-family:monospace !important;
     }
+
+    .signname{
+      width: 90% !important;
+    }
+
+    .signpass{
+      width: 90% !important;
+    }
+
+    .signemail{
+      width: 90% !important;
+    }
+
+    .logname{
+      width: 90% !important;
+    }
+
+    .logpass{
+      width: 90% !important;
+    }
   }
 
   @media only screen and (max-width: 400px){
