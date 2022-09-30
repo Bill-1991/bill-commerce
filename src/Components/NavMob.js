@@ -6,18 +6,18 @@ import audio from "../audio.mp3"
 
 const NavMob = (props) => {
   return (
-    <Navbar sticky="top" className="navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "70% 30%", height: "fit-content", width: "100%"}} expand="lg">
+    <Navbar sticky="top" className="navmob" style={{backgroundColor: props.navCollapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "70% 30%"}} expand="lg">
       <div className='d-flex gen-nav-mob' style={{alignSelf: "start"}}>
-          <p className='LOGO' style={{alignSelf: "start", fontSize: "18px"}}>{"Anim ( E ) - Quality"}</p>
-         <div className='d-flex' style={{gap: "5px", alignSelf: "start"}}>
+          <p className='LOGO' style={{alignSelf: "start", fontSize: "18px"}}>{"Anim(E)-Quality"}</p>
+         <div className='d-flex' style={{alignSelf: "start"}}>
           <Link to="/"><Button className="gohome">Home</Button></Link>
           <Link to="/anime"><Button>Animelist</Button></Link>
          </div>
         </div>
         <div className='d-grid'>
-        <Navbar.Toggle onClick={props.handleNavCollapse} className="mb-2" aria-controls="basic-navbar-nav" style={{border: "none", justifySelf: "center"}}/>
+        <Navbar.Toggle onClick={props.handleNavCollapse} aria-controls="basic-navbar-nav" style={{border: "none", justifySelf: "end"}}/>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="d-grid me-auto" style={{justifyContent: "center"}}>
+          <Nav className="d-grid me-auto" style={{justifyContent: "end", position: "relative"}}>
           {props.loggedIn === false ? <div style={{justifySelf: "center"}} className="d-grid mb-3 entermob">
           <Link to="/signin"><button>Sign up</button></Link>
           <Link to="/login"><button>Log in</button></Link>
@@ -29,7 +29,7 @@ const NavMob = (props) => {
         <hr style={{color: "black"}}></hr>
         </div>}
             <div className='d-grid' style={{gap: "10px"}}>
-        <Link className='d-grid' to="/cart" style={{position: "relative", justifySelf: "end", right: "15px"}}>
+        <Link className='d-grid cart' to="/cart" style={{position: "relative", justifySelf: "end", right: "15px"}}>
           <div style={{backgroundColor: "white", borderRadius: "100%", height: "30px", width: "30px", position: "absolute", left: "-30px", justifySelf: "center"}}>
           <p style={{color: "red", fontSize: '20px', position: "absolute", left: "4px", top: "0"}}>{props.basketItems.length}</p>
           </div>

@@ -24,6 +24,10 @@
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
   }
 
+  .navmob{
+    height: max-content !important;
+  }
+
   .navmob button{
     background-color: rgba(0, 0, 0, 0) !important;
     border: none;
@@ -77,6 +81,7 @@
     width: 100% !important;
     display: grid;
     position: relative;
+    top: 25% !important;
   }
   
   .signname{
@@ -100,6 +105,10 @@
   .logform{
     width: 100% !important;
     display: grid;
+    position: relative;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
   }
   
   .logname{
@@ -154,6 +163,10 @@
       left: 20px;
       gap: 5%;
     }
+    
+    .navmob .cart p{
+      font-size: 20px !important;
+    }
 
     .navmob p{
       font-size: 20px;
@@ -178,20 +191,15 @@
       display: grid !important;
       width: 100%
     }
-    .gen-nav-mob{
-      display: flex;
-      position: relative;
-    }
 
     .navmob p{
-      font-size: 14px !important;
-      align-self: end;
+      font-size: 10px !important;
       color: rgba(140, 255, 65, 1);
       font-family:monospace !important;
     }
 
     .navmob button{
-        font-size: 14px !important;
+        font-size: 10px !important;
         background-color: rgba(0, 0, 0, 0) !important;
         color: rgba(200, 255, 200, 1);
         border: none;
