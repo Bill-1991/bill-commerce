@@ -13,8 +13,8 @@ const Cart = ({ price, basketItems, handleInc, handleChange, handleDec, handleRe
       <div>
       <Row>
         {basketItems.map(item => <Col xs={12} sm={6} md={6} lg={4} key={item.title}>
-        <div className='d-grid mb-3 all' style={{backgroundColor: "white", color: "black", height: "30vh", gridTemplateColumns: "35% 65%"}}>
-          <img style={{width: "100%", height: "30vh"}} src={item.images.jpg.image_url} alt={item.title} />
+        <div className='d-grid mb-3 all' style={{backgroundColor: "white", color: "black", height: "fit-content", gridTemplateColumns: "35% 65%"}}>
+          <img style={{width: "100%", height: "100%"}} src={item.images.jpg.image_url} alt={item.title} />
          <div className='d-grid' style={{ textAlign: "center"}}>
           <h6 style={{color: "rgba(200, 100, 180, 1)"}}>{item.title}</h6>
           <Row className="d-flex" style={{width: "100%"}}>
