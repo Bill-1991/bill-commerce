@@ -2,10 +2,15 @@ import React from 'react'
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Row, Button, Container, Form} from "react-bootstrap";
+import { Link } from "react-router-dom"
 
-const Cart = ({ price, basketItems, handleInc, handleChange, handleDec, handleRemoveFromCart, handleReset, handleSubmit }) => {
+const Cart = ({ price, basketItems, handleInc, handleChange, handleDec, handleReset, handleRemoveFromCart, handleSubmit }) => {
   return (
-    <Container fluid id="cart" style={{position: "relative", top: "50px"}}>
+    <Container fluid id="cart" style={{position: "relative",}}>
+    {basketItems.length === 0 ? 
+       <Row><h1>You don't have anything in your cart yet...Search our <Link to="/anime">Top anime</Link></h1></Row>
+      :
+      <div>
       <Row>
         {basketItems.map(item => <Col xs={12} sm={6} md={6} lg={4} key={item.title}>
         <div className='d-grid mb-3 all' style={{backgroundColor: "white", color: "black", height: "30vh", gridTemplateColumns: "35% 65%"}}>
@@ -17,6 +22,7 @@ const Cart = ({ price, basketItems, handleInc, handleChange, handleDec, handleRe
             <Col><h4>{item.count}</h4></Col>
             <Col><button onClick={() => handleInc(item)}><h3 style={{color: "green"}}>+</h3></button></Col>
           </Row>
+          <Row><button onClick={() => handleReset(item)}>Reset</button></Row>
           <div style={{display: "grid", gridTemplateColumns: "1fr 1fr", alignSelf: 'end'}}>
             <h4 style={{justifySelf: "start"}}>{item.count * item.price}€</h4>
             <button style={{justifySelf: "end"}} onClick={() => handleRemoveFromCart(item)}><img alt="delete" /></button>
@@ -35,6 +41,8 @@ const Cart = ({ price, basketItems, handleInc, handleChange, handleDec, handleRe
           </Form.Group>
           <Button onClick={() => handleSubmit()}>Send Order</Button>
       </Form>
+      </div>
+}
     </Container>
   )
 }

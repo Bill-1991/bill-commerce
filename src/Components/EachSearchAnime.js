@@ -5,10 +5,11 @@ import { Row, Col } from 'react-bootstrap';
 import cart from "../cart.webp"
 
 
-const EachAnime = (props) => {
+const EachSearchAnime = (props) => {
 
   return (
-         <Row id={props.anime.title} className="animes">
+    
+         <Row id={props.anime.title}>
           <Col xs={12} sm={12} md={6} lg={6}><img style={{width: "320px"}} src={props.anime.images.jpg.image_url} alt={props.anime.title} /></Col>
          <Col xs={12} sm={12} md={6} lg={6} style={{ textAlign: "start"}}>
           <div className="d-grid" style={{width: "100%", gap: "10px", height: "fit-content"}}>
@@ -31,15 +32,16 @@ const EachAnime = (props) => {
               {props.showDesc === true ? <p>{props.anime.synopsis}</p> : undefined}
               <hr></hr>
               </div>
-          <div className='mt-2 d-flex eachcart' style={{justifyContent: "start", gap: "20px"}}>
+          <div className='mt-2 d-flex eachtopcart' style={{justifyContent: "start", gap: "20px"}}>
            <h4 style={{alignSelf: "center"}}>{props.anime.price}€</h4>
-           <button onClick={() => props.handleAddToCartAnime(props.anime)} style={{justifySelf: "end", backgroundColor: "rgba(0, 0, 0, 0)"}}><img style={{width: "40px"}} src={cart} alt="To Cart" /></button>
+           <button onClick={() => props.handleAddToCartSearch(props.anime)} style={{justifySelf: "end", backgroundColor: "rgba(0, 0, 0, 0)"}}><img style={{width: "40px"}} src={cart} alt="To Cart" /></button>
             </div>
           </div>
           </div>
          </Col> 
         </Row>
+      
   )
 }
 
-export default EachAnime
+export default EachSearchAnime
