@@ -110,12 +110,12 @@ function App() {
   const handleSearchValue = (e) => {
     e.preventDefault()
     setSearchValue(e.target.value)
-    const newAllAnime = eachAllAnime.filter(anime => anime.title.toLowerCase().includes(e.target.value.toLowerCase()))
-    setSearchAnime([...newAllAnime])
-    console.log(searchAnime)
   }
 
   const handleSearch = () => {
+    let newAllAnime = eachAllAnime.filter(anime => anime.title.toLowerCase().includes(searchValue.toLowerCase()))
+    setSearchAnime([...newAllAnime])
+    console.log(searchAnime)
     setSearchValue("") 
   }
 
@@ -344,14 +344,14 @@ function App() {
        <Routes>
         <Route exact path="/" element={<Home searchAnime={searchAnime} loggedIn={loggedIn} loggedInUser={loggedInUser} />} />
         <Route exact path={"/anime/"} element={<AnimeList handleSearch={handleSearch} searchAnime={searchAnime} searchValue={searchValue} handleSearchValue={handleSearchValue} animeList={animeList} handleAddToCartAnime={handleAddToCartAnime} />}  />
-        <Route exact path="/anime/topanime" element={<TopAnime topAnime={topAnime} handleAddToCartTop={handleAddToCartTop} />} />
-        <Route exact path="/anime/search" element={<Search searchAnime={searchAnime} handleAddToCartSearch={handleAddToCartSearch} />} />
+        <Route exact path="/anime/topanime" element={<TopAnime handleSearch={handleSearch} searchValue={searchValue} handleSearchValue={handleSearchValue} topAnime={topAnime} handleAddToCartTop={handleAddToCartTop} />} />
+        <Route exact path="/anime/search" element={<Search searchAnime={searchAnime} handleAddToCartSearch={handleAddToCartSearch} searchValue={searchValue} handleSearch={handleSearch} handleSearchValue={handleSearchValue} />} />
         <Route exact path="/cart" element={<Cart price={price} basketItems={basketItems} handleRemoveFromCart={handleRemoveFromCart} handleInc={handleInc} handleDec={handleDec} handleReset={handleReset} />} />
         <Route exact path="/signin" element={<SignIn handleImage={handleImage} wrongPass={wrongPass} userName={userName} passWord={passWord} email={email} handleNameChange={handleNameChange} handlePassChange={handlePassChange} handleEmailChange={handleEmailChange} handleSubmit={handleSubmit} allUsers={allUsers} handleSubmitUser={handleSubmitUser} />} />
         <Route exact path="/login" element={loggedIn === true ? (<Navigate replace to="/" />) : (<LogIn logInUserName={logInUserName} logInPassWord={logInPassWord} loggedInUser={loggedInUser} handleLoggedInSubmit={handleLoggedInSubmit} handleLogInUserName={handleLogInUserName} handleLogInPassWord={handleLogInPassWord}  />)} />
         {animeList.map(anime => <Route exact path={"/anime/" + anime.title} key={anime.title} element={<EachAnime showDesc={showDesc} handleShowDesc={handleShowDesc} handleAddToCartAnime={handleAddToCartAnime} anime={anime} />} />)}
         {topAnime.map(eachTopAnime => <Route exact path={"/anime/topanime/" + eachTopAnime.title} key={eachTopAnime.title} element={<AllTopAnime showDesc={showDesc} handleShowDesc={handleShowDesc} handleAddToCartTop={handleAddToCartTop} eachTopAnime={eachTopAnime} />} />)}
-        {searchAnime.map(anime => <Route exact path={"/anime/search/" + anime.title} element={<EachSearchAnime handleAddToCartSearch={handleAddToCartSearch} anime={anime} />} />)}
+        {searchAnime.map(searchAnime => <Route exact path={"/anime/search/" + searchAnime.title} element={<EachSearchAnime handleAddToCartSearch={handleAddToCartSearch} searchAnime={searchAnime} />} />)}
        </Routes>
      </HashRouter>
     </Container>

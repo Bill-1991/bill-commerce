@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import cart from "../cart.webp";
 import glass from "../glass.png"
 
-const TopAnime = ({ searchValue, topAnime, handleAddToCartTop }) => {
+const TopAnime = ({ searchValue, topAnime, handleAddToCartTop, handleSearch, handleSearchValue }) => {
   return (
     <Container id="topanime" fluid >
       <Row className='d-grid mt-5' style={{gridTemplateColumns: "50% 50%", position: "relative", textAlign: "center"}}>
@@ -13,8 +13,8 @@ const TopAnime = ({ searchValue, topAnime, handleAddToCartTop }) => {
       <Link to="/anime/topanime"><button style={{backgroundColor: "rgba(0,0,0,0)", color: "gold", border: "none"}}>Top</button></Link>
       </div>
       <div style={{display: "flex", width: "100%", height: "30px", justifyContent: "end"}}>
-        <textarea value={searchValue} style={{width: "70%"}} placeholder="Search"></textarea>
-        <button style={{width: "40px"}}><img style={{width: "100%", height: "100%"}} src={glass} alt="magnifying glass"/></button>
+        <textarea value={searchValue} onChange={handleSearchValue} style={{width: "70%"}} placeholder="Search"></textarea>
+        <Link to="/anime/search"><button onClick={handleSearch} style={{width: "40px"}}><img style={{width: "100%", height: "100%"}} src={glass} alt="magnifying glass"/></button></Link>
       </div>
     </Row>
     <hr></hr>

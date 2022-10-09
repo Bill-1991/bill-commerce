@@ -13,11 +13,11 @@ const AnimeList = ({ searchAnime, animeList, handleAddToCartAnime, handleSearch,
     <Row className='d-grid mt-5' style={{gridTemplateColumns: "50% 50%", position: "relative", textAlign: "center"}}>
       <div className="d-flex" style={{gap: "10px"}}>
       <Link to="/anime"><button style={{backgroundColor: "rgba(0,0,0,0)", color: "aqua", border: "none"}}>All</button></Link>
-      <Link to="/anime/topanime"><button onClick={() => handleSearch} style={{backgroundColor: "rgba(0,0,0,0)", color: "gold", border: "none"}}>Top</button></Link>
+      <Link to="/anime/topanime"><button  style={{backgroundColor: "rgba(0,0,0,0)", color: "gold", border: "none"}}>Top</button></Link>
       </div>
       <div style={{display: "flex", width: "100%", height: "30px", justifyContent: "end"}}>
         <textarea value={searchValue} onChange={handleSearchValue} type="text" style={{width: "70%"}} placeholder="Search"></textarea>
-        <Link to="/anime/search"><button style={{width: "40px"}}><img style={{width: "100%", height: "100%"}} src={glass} alt="magnifying glass"/></button></Link>
+        <Link to="/anime/search"><button onClick={handleSearch} style={{width: "40px"}}><img style={{width: "100%", height: "100%"}} src={glass} alt="magnifying glass"/></button></Link>
       </div>
     </Row>
     <hr></hr> 
