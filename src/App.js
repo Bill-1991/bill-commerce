@@ -107,6 +107,10 @@ function App() {
   }*/
   console.log(eachAllAnime)
 
+  const refreshPage = () => {
+    window.location.reload()
+  }
+
   const handleSearchValue = (e) => {
     e.preventDefault()
     setSearchValue(e.target.value)
@@ -116,7 +120,7 @@ function App() {
     let newAllAnime = eachAllAnime.filter(anime => anime.title.toLowerCase().includes(searchValue.toLowerCase()))
     setSearchAnime([...newAllAnime])
     console.log(searchAnime)
-    setSearchValue("") 
+    setSearchValue("")
   }
 
   const handleShowDesc = () => {
@@ -210,9 +214,7 @@ function App() {
         if (err){
           console.log(err)
         }else {
-          setUserName("")
-          setPassWord("")
-          setEmail("")
+          window.location.reload()
         }
       })
   }
@@ -351,7 +353,7 @@ function App() {
         <Route exact path="/login" element={loggedIn === true ? (<Navigate replace to="/" />) : (<LogIn logInUserName={logInUserName} logInPassWord={logInPassWord} loggedInUser={loggedInUser} handleLoggedInSubmit={handleLoggedInSubmit} handleLogInUserName={handleLogInUserName} handleLogInPassWord={handleLogInPassWord}  />)} />
         {animeList.map(anime => <Route exact path={"/anime/" + anime.title} key={anime.title} element={<EachAnime showDesc={showDesc} handleShowDesc={handleShowDesc} handleAddToCartAnime={handleAddToCartAnime} anime={anime} />} />)}
         {topAnime.map(eachTopAnime => <Route exact path={"/anime/topanime/" + eachTopAnime.title} key={eachTopAnime.title} element={<AllTopAnime showDesc={showDesc} handleShowDesc={handleShowDesc} handleAddToCartTop={handleAddToCartTop} eachTopAnime={eachTopAnime} />} />)}
-        {searchAnime.map(searchAnime => <Route exact path={"/anime/search/" + searchAnime.title} element={<EachSearchAnime handleAddToCartSearch={handleAddToCartSearch} searchAnime={searchAnime} />} />)}
+        {searchAnime.map(searchAnime => <Route exact path={"/anime/search/" + searchAnime.title} element={<EachSearchAnime handleAddToCartSearch={handleAddToCartSearch} searchAnime={searchAnime} showDesc={showDesc} handleShowDesc={handleShowDesc} />} />)}
        </Routes>
      </HashRouter>
     </Container>

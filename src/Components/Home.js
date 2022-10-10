@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 //import cart from "../cart.webp"
 import allChars from "../allchars.jpg"
 
-const Home = ({ topAnime, handleAddToCartTop, loggedIn, loggedInUser, searchAnime }) => {
+const Home = () => {
   const [count, setCount] = useState(0)
 
   setTimeout(() => {
@@ -16,7 +16,6 @@ const Home = ({ topAnime, handleAddToCartTop, loggedIn, loggedInUser, searchAnim
       setCount(count + 1)
     }
   }, 6000)
-  console.log(searchAnime[0])
   return (
     <Row className="home" style={{position: "fixed", top: "0", backgroundImage: `url(${allChars})`, backgroundSize: "cover", height: "100%", width: "100%"}} id="/">
           <div className="slider" >
