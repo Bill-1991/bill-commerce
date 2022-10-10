@@ -107,10 +107,6 @@ function App() {
   }*/
   console.log(eachAllAnime)
 
-  const refreshPage = () => {
-    window.location.reload()
-  }
-
   const handleSearchValue = (e) => {
     e.preventDefault()
     setSearchValue(e.target.value)
