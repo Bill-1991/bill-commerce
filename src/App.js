@@ -209,8 +209,6 @@ function App() {
       }).then((err, res) => {
         if (err){
           console.log(err)
-        }else {
-          window.location.reload()
         }
       })
   }
