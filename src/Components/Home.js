@@ -1,34 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row } from "react-bootstrap";
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 //import cart from "../cart.webp"
 import allChars from "../allchars.jpg"
 
 const Home = () => {
-  const [count, setCount] = useState(0)
-
-  setTimeout(() => {
-    if (count === 3){
-      setCount(0)
-    }else {
-      setCount(count + 1)
-    }
-  }, 6000)
   return (
     <Row className="home" style={{position: "fixed", top: "0", backgroundImage: `url(${allChars})`, backgroundSize: "cover", height: "100%", width: "100%"}} id="/">
-          <div className="slider" >
-          <h4 className="slide" style={{display: count >= 0 && count < 1 ? "block" : "none", color: "rgba(0, 0, 0, 1)"}}>
-              Welcome to Anime Quality!! The all in one place anime titles's place with a wide variety of anime episodes and anime souvenirs! Search around!
-            </h4>
-            <h4 className="slide" style={{display: count >= 1 && count < 2 ? "block" : "none",color: "rgba(0, 0, 0, 1)"}}>
-              <Link to="/anime">Animelist</Link>
-            </h4>
-            <h4 className="slide" style={{display: count >= 2 && count < 3 ? "block" : "none", color: "rgba(0, 0, 0, 1)"}}>
-              Everything!!!
-            </h4>
-          </div>
+          
     </Row>
   )
 }
