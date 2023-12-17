@@ -2,14 +2,14 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../App.css"
 import { Row, Col } from 'react-bootstrap';
-import cart from "../cart.webp"
+import cart from "../assets/cart.webp"
 
 
 const EachAnime = (props) => {
 
   return (
          <Row id={props.anime.title} className="animes">
-          <Col xs={12} sm={12} md={6} lg={6}><img style={{width: "320px"}} src={props.anime.images.jpg.image_url} alt={props.anime.title} /></Col>
+          <Col xs={12} sm={12} md={6} lg={6}><img src={props.anime.images.jpg.image_url} alt={props.anime.title} /></Col>
          <Col xs={12} sm={12} md={6} lg={6} style={{ textAlign: "start"}}>
           <div className="d-grid" style={{width: "100%", gap: "10px", height: "fit-content"}}>
           <h2>{props.anime.title}</h2>

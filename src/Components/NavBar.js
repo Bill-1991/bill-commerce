@@ -3,8 +3,8 @@ import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Navbar} from "react-bootstrap";
 import { Link } from "react-router-dom"
-import audio from "../audio.mp3"
-import navCart from "../navCart.png"
+import audio from "../assets/audio.mp3"
+import navCart from "../assets/navCart.png"
 
 const NavBar = (props) => {
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../App.css"
 import { Row, Col } from 'react-bootstrap';
-import cart from "../cart.webp"
+import cart from "../assets/cart.webp"
 
 
 const EachSearchAnime = (props) => {

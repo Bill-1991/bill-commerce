@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row } from "react-bootstrap";
 //import { Link } from "react-router-dom"
 //import cart from "../cart.webp"
-import allChars from "../allchars.jpg"
+import allChars from "../assets/allchars.jpg"
 
 const Home = () => {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
 import {Navbar, Nav, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import navCart from "../navCart.png"
-import audio from "../audio.mp3"
+import navCart from "../assets/navCart.png"
+import audio from "../assets/audio.mp3"
 
 const NavMob = (props) => {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Container, Col, Row } from "react-bootstrap"
-import cart from "../cart.webp"
-import glass from "../glass.png"
+import cart from "../assets/cart.webp"
+import glass from "../assets/glass.png"
 
 
 const Search = ({ searchAnime, handleAddToCartSearch, handleSearch, handleSearchValue, searchValue }) => {
