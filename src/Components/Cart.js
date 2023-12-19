@@ -21,7 +21,7 @@ const Cart = ({cartName, cartNum, cartAddress, cartText, cartSend, cartSubmit, h
           <p style={{ fontSize: "30px"}}>Total price: {price}</p>
           {basketItems.map(item => 
           <Col xs={12} sm={6} md={6} lg={4} key={item.title}>
-            <div className='d-grid all' style={{fontSize: "16px", fontWeight: "600", fontStyle: "oblique", maxHeight: "200px", backgroundColor: "rgba(0, 10, 0, 0.7)", color: "white", height: "fit-content", gridTemplateColumns: "35% 65%"}}>
+            <div className='d-grid all mt-2' style={{fontSize: "16px", fontWeight: "600", fontStyle: "oblique", maxHeight: "200px", backgroundColor: "rgba(0, 10, 0, 0.7)", color: "white", height: "fit-content", gridTemplateColumns: "35% 65%"}}>
               <img style={{width: "100%", height: "100%", maxHeight: "200px"}} src={item.images.jpg.image_url} alt={item.title} />
               <div className='d-grid' style={{ gridTemplateRows: "30% 20% 20% 30%", textAlign: "center"}}>
                 <p style={{fontSize: "20px"}}>{item.title}</p>
