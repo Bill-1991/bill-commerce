@@ -47,6 +47,12 @@ function App() {
   const [imgSrc, setImgSrc] = useState("")
   const [searchAnime, setSearchAnime] = useState([])
   const [searchValue, setSearchValue] = useState("")
+  const [cartName, setCartName] = useState("")
+  const [cartNum, setCartNum] = useState("")
+  const [cartAddress, setCartAddress] = useState("")
+  const [cartText, setCartText] = useState("")
+  const [cartSend, setCartSend] = useState(false)
+  const [cartSubmit, setCartSubmit] = useState(false)
   const eachAllAnime = animeList.concat(topAnime)
   
  
@@ -61,8 +67,8 @@ function App() {
       setImgSrc(base64ToImgSrc)
       setUsers([...data])})
   },[])
-  console.log(allUsers)
-  console.log("data:image/jpg;base64," + imgSrc)
+  //console.log(allUsers)
+  //console.log("data:image/jpg;base64," + imgSrc)
 
   /* useEffect(() => {
     const loggedInPerson = JSON.parse(window.localStorage.getItem("loggedInUser"))
@@ -105,7 +111,51 @@ function App() {
     e.preventDefault()
     setMessage(e.target.value)
   }*/
-  console.log(eachAllAnime)
+  //console.log(eachAllAnime)
+
+  const handleCartName = (e) => {
+    e.preventDefault()
+    setCartName(e.target.value)
+  }
+
+  const handleCartNum = (e) => {
+    e.preventDefault()
+    setCartNum(e.target.value)
+  }
+
+  const handleCartAddress = (e) => {
+    e.preventDefault()
+    setCartAddress(e.target.value)
+  }
+
+  const handleCartText = (e) => {
+    e.preventDefault()
+    setCartText(e.target.value)
+  }
+
+  const handleCartSend = () => {
+    if (cartSend === true) {
+      setCartSend(false)
+      setCartSubmit(false)
+    } else {
+      setCartSend(true)
+    }
+  }
+
+  const handleCartSubmit = (e) => {
+    if (cartSubmit === false) {
+      setCartSubmit(true)
+      setPrice(0)
+      for (let i in basketItems)
+      {
+        basketItems[i].count = 0
+        basketItems[i].price = 0
+      }
+      setBasketItems([])
+    } else {
+      setCartSubmit(false)
+    }
+  }
 
   const handleSearchValue = (e) => {
     e.preventDefault()
@@ -328,21 +378,21 @@ function App() {
   /*const handleChange = (e) => {
     setName(e.target.value)
   }*/
-  console.log(animeList)
-  console.log(topAnime)
-  console.log(searchAnime)
+  //console.log(animeList)
+  //console.log(topAnime)
+  //console.log(searchAnime)
   
   return (
     <Container fluid className="App">
       <HashRouter>
-       <NavBar collapse={collapse} loggedIn={loggedIn} handleCollapse={handleCollapse} image={image} imgSrc={imgSrc} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} /> 
-       <NavMob navCollapse={navCollapse} loggedIn={loggedIn} handleNavCollapse={handleNavCollapse} image={image} imgSrc={imgSrc} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} />
+       <NavBar cartSend={cartSend} collapse={collapse} loggedIn={loggedIn} handleCollapse={handleCollapse} image={image} imgSrc={imgSrc} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} /> 
+       <NavMob cartSend={cartSend} navCollapse={navCollapse} loggedIn={loggedIn} handleNavCollapse={handleNavCollapse} image={image} imgSrc={imgSrc} loggedInUser={loggedInUser} handleLoggedOut={handleLoggedOut} sound={sound} handleSound={handleSound} basketItems={basketItems} />
        <Routes>
         <Route exact path="/" element={<Home searchAnime={searchAnime} loggedIn={loggedIn} loggedInUser={loggedInUser} />} />
         <Route exact path={"/anime/"} element={<AnimeList handleSearch={handleSearch} searchAnime={searchAnime} searchValue={searchValue} handleSearchValue={handleSearchValue} animeList={animeList} handleAddToCartAnime={handleAddToCartAnime} />}  />
         <Route exact path="/anime/topanime" element={<TopAnime handleSearch={handleSearch} searchValue={searchValue} handleSearchValue={handleSearchValue} topAnime={topAnime} handleAddToCartTop={handleAddToCartTop} />} />
         <Route exact path="/anime/search" element={<Search searchAnime={searchAnime} handleAddToCartSearch={handleAddToCartSearch} searchValue={searchValue} handleSearch={handleSearch} handleSearchValue={handleSearchValue} />} />
-        <Route exact path="/cart" element={<Cart price={price} basketItems={basketItems} handleRemoveFromCart={handleRemoveFromCart} handleInc={handleInc} handleDec={handleDec} handleReset={handleReset} />} />
+        <Route exact path="/cart" element={<Cart cartName={cartName} cartNum={cartNum} cartAddress={cartAddress} cartText={cartText} cartSend={cartSend} cartSubmit={cartSubmit} handleCartName={handleCartName} handleCartNum={handleCartNum} handleCartAddress={handleCartAddress} handleCartText={handleCartText} handleCartSend={handleCartSend} handleCartSubmit={handleCartSubmit} price={price} basketItems={basketItems} handleRemoveFromCart={handleRemoveFromCart} handleInc={handleInc} handleDec={handleDec} handleReset={handleReset} />} />
         <Route exact path="/signin" element={<SignIn handleImage={handleImage} wrongPass={wrongPass} userName={userName} passWord={passWord} email={email} handleNameChange={handleNameChange} handlePassChange={handlePassChange} handleEmailChange={handleEmailChange} handleSubmit={handleSubmit} allUsers={allUsers} handleSubmitUser={handleSubmitUser} />} />
         <Route exact path="/login" element={loggedIn === true ? (<Navigate replace to="/" />) : (<LogIn logInUserName={logInUserName} logInPassWord={logInPassWord} loggedInUser={loggedInUser} handleLoggedInSubmit={handleLoggedInSubmit} handleLogInUserName={handleLogInUserName} handleLogInPassWord={handleLogInPassWord}  />)} />
         {animeList.map(anime => <Route exact path={"/anime/" + anime.title} key={anime.title} element={<EachAnime showDesc={showDesc} handleShowDesc={handleShowDesc} handleAddToCartAnime={handleAddToCartAnime} anime={anime} />} />)}

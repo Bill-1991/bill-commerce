@@ -9,7 +9,7 @@ import navCart from "../assets/navCart.png"
 const NavBar = (props) => {
   return (
     
-      <Navbar sticky="top" className='nav' style={{backgroundColor: props.collapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "40% 35% 25%"}}>
+      <Navbar sticky="top" className='nav' style={{ opacity: props.cartSend === true ? "0" : "1", backgroundColor: props.collapse === false ? "rgba(100, 100, 255, 0.7)" : "rgba(100, 100, 255, 0.9)", gridTemplateColumns: "40% 35% 25%"}}>
         <div className='gen-nav' style={{position: "relative", display: "flex", alignSelf: "start"}}>
           <p className="logo" style={{fontSize: "20px", justifySelf: "end"}}>{"Anim ( E ) - Quality"}</p>
          <div className='d-flex'>
